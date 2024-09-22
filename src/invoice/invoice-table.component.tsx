@@ -91,9 +91,9 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({ bill, isSelectable = true, 
           billItem: item.billableService ? item.billableService : item?.item,
           billCode: bill?.receiptNumber,
           status: item.paymentStatus,
-          quantity: item.quantity,
-          price: convertToCurrency(item.price, defaultCurrency),
-          total: item.price * item.quantity,
+          quantity: item.quantity ?? 0,
+          price: convertToCurrency(item.price ?? 0, defaultCurrency),
+          total: convertToCurrency((item.price ?? 0) * (item.quantity ?? 0), defaultCurrency),
           actionButton: (
             <span>
               {showEditBillButton ? (

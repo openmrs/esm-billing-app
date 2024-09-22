@@ -80,12 +80,14 @@ const Invoice: React.FC = () => {
   if (isLoadingPatient && isLoadingBill) {
     return (
       <div className={styles.invoiceContainer}>
-        <InlineLoading
-          className={styles.loader}
-          status="active"
-          iconDescription="Loading"
-          description="Loading patient header..."
-        />
+        <div role="progressbar" aria-label="Loading patient header">
+          <InlineLoading
+            className={styles.loader}
+            status="active"
+            iconDescription="Loading"
+            description="Loading patient header..."
+          />
+        </div>
       </div>
     );
   }
